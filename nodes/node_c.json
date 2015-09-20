@@ -1,5 +1,5 @@
 {
-    "name": "host-c",
+    "name": "node-c",
     "chef_environment": "DEV",
     "json_class": "Chef::Node",
     "automatic": {
@@ -10,7 +10,7 @@
     "default": {},
     "override": {},
     "run_list": [
-        "role[sbg-common]"
+        "role[not-common]"
     ]
 }
 
