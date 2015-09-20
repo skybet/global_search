@@ -39,6 +39,7 @@ chef-shell>
 We can also search across Organizations. To do this, you will need to add a client in the target Organization called 'searchclient'. The client needen't have any more permission than to read from the API.
 
 To search another Organization:
+
 ```rb
 node.default['sbg_global_search']['search']['myorg']['endpoint'] = 'http://yourchefserver/organizations/myorg'
 node.default['sbg_global_search']['search']['myorg']]['search_key'] = 'Client key content'
