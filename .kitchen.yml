@@ -1,0 +1,33 @@
+# vi: set tabstop=2 :
+# vi: set shiftwidth=2 :
+---
+driver:
+  name: docker
+provisioner:
+  name: chef_solo
+  environments_path: ./envs
+  nodes_path: ./nodes
+  solo_rb:
+    environment: DEV
+    local_mode: true
+    client_key:
+    file_atomic_update: false
+platforms:
+  - name: centos6
+    driver_config:
+      use_sudo: false
+      image: jrwesolo/centos-with-chef:6
+      platform: rhel
+      provision_command: yum install -q -y cronie tar
+    run_list:
+      - recipe[chef-vault]
+      - recipe[sbg_base::mixins]
+      - recipe[sbg_iptables::mixins]
+suites:
+  - name: global_search
+    run_list:
+      <% Dir.glob("./recipes/*.rb").sort.each do |f| %>
+      - recipe[sbg_global_search::<%= File.basename(f, '.*')%>]
+      <% end %>
+    attributes:
+

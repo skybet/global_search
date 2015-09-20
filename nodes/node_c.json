@@ -1,0 +1,16 @@
+{
+    "name": "host-c",
+    "chef_environment": "DEV",
+    "json_class": "Chef::Node",
+    "automatic": {
+        "ipaddress": "127.0.0.1"
+    },
+    "normal": {},
+    "chef_type": "node",
+    "default": {},
+    "override": {},
+    "run_list": [
+        "role[sbg-common]"
+    ]
+}
+
