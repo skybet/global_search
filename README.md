@@ -44,19 +44,24 @@ chef-shell> result = get_role_member_hostnames('common', 'myorg')
 ['host-d','host-e','host-f']
 chef-shell>
 ```
+
 ### Functions
+
 ```rb
 get_environment_nodes(env=node.chef_environment.downcase)
 ```
 Returns a hash of node FQDNs and attributes from the node.run_state cache. Optional, return nodes from alternate Organization env
+
 ```rb
 get_role_member_hostnames(role, env=node.chef_environment.downcase)
 ```
 Returns an array of node names where node has role on the run_list. Optional, return nodes from alternate Organization env
+
 ```rb
 get_role_member_ips(role, env=node.chef_environment.downcase)
 ```
 Returns an array of ipaddresses for each node that has role on the run_list. Optional, return nodes from alternate Organization env
+
 ```rb
 get_role_member_fqdns(role, env=node.chef_environment.downcase)
 ```
